@@ -6,6 +6,7 @@ import "../styles/planner.css";
 import "../styles/print.css";
 import "katex/dist/katex.min.css";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import Sidebar from "../components/Sidebar";
 import PageMath from "../components/PageMath";
 import { TOPICS } from "../lib";
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Sidebar topics={LINKS} />
           <main className="maincol">{children}</main>
         </div>
+        <Analytics />
       </body>
     </html>
   );
