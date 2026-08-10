@@ -1,0 +1,43 @@
+﻿---
+title: Integration by Parts
+description: Trade a product for a simpler product using the integrated product rule.
+---
+
+Integration by parts is the product rule in reverse:
+
+$$
+\int u\,dv=uv-\int v\,du.
+$$
+
+Choose $u$ so differentiation simplifies it, and $dv$ so integration is easy. LIATE is a useful heuristic: logarithmic, inverse trig, algebraic, trig, exponential.
+
+<WorkedExampleSet topic="parts" from={0} count={3} />
+<CheckpointQuiz topic="parts" from={0} count={2} />
+
+## Worked example: a polynomial and an exponential
+
+For $\int xe^x\,dx$, choose $u=x$ and $dv=e^x\,dx$. Then $du=dx$ and $v=e^x$:
+
+$$
+xe^x-\int e^x\,dx=(x-1)e^x+C.
+$$
+
+Differentiate the answer to check both the product and the sign.
+
+## Tabular and cyclic cases
+
+Differentiate the polynomial down to zero, integrate the other factor down, and alternate signs on the diagonals. For $e^x\sin x$, a second application reproduces the original integral. Name it $I$, collect the $I$-terms, and solve algebraically.
+
+<div className="soft-callout"><strong>Transfer.</strong> Try $\int x^2e^x\,dx$. The same structure works, but the table needs one more row.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> Dropping the boundary term in a definite integration-by-parts problem loses part of the answer.</div>
+
+<WorkedExampleSet topic="parts" from={3} count={3} />
+<CheckpointQuiz topic="parts" from={2} count={2} />
+
+<WorkedExampleSet topic="parts" from={6} count={4} />
+<CheckpointQuiz topic="parts" from={4} count={2} />
+
+## Quick check
+
+For $\int\ln x\,dx$, invent the product $u=\ln x$, $dv=dx$. State why this is legal before integrating.

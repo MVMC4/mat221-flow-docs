@@ -1,0 +1,33 @@
+﻿---
+title: Numerical Integration
+description: Approximate definite integrals with weighted sums and controlled error.
+---
+
+When no elementary antiderivative is available, approximate the integral by fitting shapes to small subintervals.
+
+## Rules and weights
+
+With $\Delta x=(b-a)/n$, the trapezoidal rule uses endpoint weight $1$ and interior weight $2$. Simpson's rule requires even $n$, uses weights $1,4,2,4,\ldots,4,1$, and multiplies by $\Delta x/3$.
+
+For $\int_1^3 1/x\,dx$ with $n=4$, list the five function values first, then insert the weights. Simpson's result is close to $\ln3$; compare only after the weighted sum is complete.
+
+<WorkedExampleSet topic="numerical" from={0} count={3} />
+<CheckpointQuiz topic="numerical" from={0} count={2} />
+
+## Error and shape
+
+The trapezoidal error is controlled by a bound on $\lvert f''\rvert$, while Simpson's error uses a bound on $\lvert f^{(4)}\rvert$. Doubling $n$ reduces trapezoidal error by about $4$ and Simpson error by about $16$.
+
+<div className="soft-callout"><strong>Transfer.</strong> Predict over- or underestimation from concavity before calculating. Concave-up trapezoids overestimate.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> Simpson's rule needs even $n$, and $K$ must bound the required derivative on the whole interval.</div>
+
+<WorkedExampleSet topic="numerical" from={3} count={3} />
+<CheckpointQuiz topic="numerical" from={2} count={2} />
+
+<WorkedExampleSet topic="numerical" from={6} count={4} />
+<CheckpointQuiz topic="numerical" from={4} count={2} />
+
+## Quick check
+
+Write the weight pattern for $n=6$ without looking, then explain why Simpson's rule is exact for cubic polynomials.

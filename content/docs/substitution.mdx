@@ -1,0 +1,49 @@
+﻿---
+title: Integration by Substitution
+description: Reverse the chain rule by matching an inside function with its differential.
+---
+
+Substitution reverses the chain rule. Look for $f(g(x))g'(x)$, choose $u=g(x)$, and rewrite the integral completely in $u$.
+
+## Rule and decision
+
+$$
+\int f(g(x))g'(x)\,dx=\int f(u)\,du.
+$$
+
+Differentiate $u$, multiply by $dx$, solve for the exact differential piece present, and do not leave an $x$ behind.
+
+<WorkedExampleSet topic="substitution" from={0} count={3} />
+<CheckpointQuiz topic="substitution" from={0} count={2} />
+
+## Worked example: direct match
+
+For $\int 2x\cos(x^2)\,dx$, choose $u=x^2$, so $du=2x\,dx$. The integral becomes $\int\cos u\,du=\sin u+C$, hence $\sin(x^2)+C$. Differentiate to check the chain rule.
+
+## Worked example: constant mismatch
+
+For $\int x\sqrt{x+1}\,dx$, choose $u=x+1$. Then $du=dx$ and $x=u-1$, so:
+
+$$
+\int(u-1)\sqrt{u}\,du.
+$$
+
+Integrate the two powers and substitute back. The leftover $x$ was not ignored; it was rewritten as $u-1$.
+
+<div className="soft-callout"><strong>Transfer.</strong> Try the same structure with $u=4-x^2$. The limits reverse from $4$ to $0$, so keep the sign visible.</div>
+
+## Definite substitution
+
+For definite integrals, change the limits when $u$ is introduced. In $\int_0^1 x/(1+x^2)\,dx$, $u=1+x^2$ changes the limits $1\to2$, and the answer is $\frac12\ln2$.
+
+<div className="soft-callout"><strong>Common error.</strong> Evaluating a $u$-antiderivative at $x$-limits mixes variables and usually loses a constant factor.</div>
+
+<WorkedExampleSet topic="substitution" from={3} count={3} />
+<CheckpointQuiz topic="substitution" from={2} count={2} />
+
+<WorkedExampleSet topic="substitution" from={6} count={4} />
+<CheckpointQuiz topic="substitution" from={4} count={2} />
+
+## Quick check
+
+For each integral, write $u$, $du$, the changed limits if needed, and the line where every $x$ disappears.

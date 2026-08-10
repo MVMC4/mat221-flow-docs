@@ -1,0 +1,36 @@
+﻿---
+title: Improper Integrals
+description: Replace infinite endpoints and singularities with limits, then decide convergence.
+---
+
+An improper integral is a proper integral plus a limit. Cut off the infinite endpoint or singularity, evaluate, then ask whether the limit is finite.
+
+## The p-test
+
+$$
+\int_1^\infty \frac{dx}{x^p}\text{ converges iff }p>1,\qquad
+\int_0^1 \frac{dx}{x^p}\text{ converges iff }p<1.
+$$
+
+For $\int_0^2 1/(x-1)\,dx$, the singularity at $x=1$ forces a split. One divergent half is enough to make the full integral divergent; blind FTC evaluation is invalid.
+
+<WorkedExampleSet topic="improper" from={0} count={3} />
+<CheckpointQuiz topic="improper" from={0} count={2} />
+
+## Comparison and transfer
+
+For nonnegative functions, compare in the direction that preserves a known convergent or divergent benchmark. A doubly infinite integral must converge on both halves.
+
+<div className="soft-callout"><strong>Worked example.</strong> $\int_1^\infty 1/x^2\,dx$ becomes $\lim_{t\to\infty}(1-1/t)=1$. Infinite width does not automatically mean infinite area.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> A symmetric cancellation across a singularity is not convergence. Split at every blow-up first.</div>
+
+<WorkedExampleSet topic="improper" from={3} count={3} />
+<CheckpointQuiz topic="improper" from={2} count={2} />
+
+<WorkedExampleSet topic="improper" from={6} count={4} />
+<CheckpointQuiz topic="improper" from={4} count={2} />
+
+## Quick check
+
+Classify each endpoint before choosing an antiderivative. State the limit notation explicitly.

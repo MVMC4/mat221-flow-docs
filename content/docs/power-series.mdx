@@ -1,0 +1,33 @@
+﻿---
+title: Power Series
+description: Find radii, test endpoints, and manufacture new series by term-by-term calculus.
+---
+
+A power series $\sum c_n(x-a)^n$ converges inside a radius, diverges outside, and requires separate endpoint tests.
+
+## Radius and interval
+
+Apply the ratio test to the absolute value and solve $|x-a|<R$. Then substitute $a-R$ and $a+R$ into the original numeric series.
+
+For $\sum x^n/n$, the ratio gives $R=1$. At $x=1$ the harmonic series diverges; at $x=-1$ the alternating harmonic series converges. The interval is $[-1,1)$.
+
+<WorkedExampleSet topic="power-series" from={0} count={3} />
+<CheckpointQuiz topic="power-series" from={0} count={2} />
+
+## Term-by-term calculus
+
+Inside the radius, differentiate or integrate term by term. The radius stays the same, although endpoint behavior can change. This manufactures familiar series such as $-\ln(1-x)$ and $\tan^{-1}x$.
+
+<div className="soft-callout"><strong>Transfer.</strong> For $\sum (x-3)^n/2^n$, the centre is $3$, not $0$, and the radius is $2$.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> Reporting only $R$ is incomplete. State the centre, interval, and endpoint verdicts.</div>
+
+<WorkedExampleSet topic="power-series" from={3} count={3} />
+<CheckpointQuiz topic="power-series" from={2} count={2} />
+
+<WorkedExampleSet topic="power-series" from={6} count={4} />
+<CheckpointQuiz topic="power-series" from={4} count={2} />
+
+## Quick check
+
+Explain why the endpoint tests cannot be decided by the ratio test when its limit equals $1$.

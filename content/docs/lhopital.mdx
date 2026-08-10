@@ -1,0 +1,32 @@
+﻿---
+title: L'Hopital's Rule
+description: Compare rates of change only for genuine indeterminate quotients.
+---
+
+L'Hopital's rule is a rate comparison, not an algebra shortcut. Verify $0/0$ or $\infty/\infty$ first.
+
+## Algorithm
+
+1. Substitute and classify the form.
+2. Differentiate numerator and denominator separately.
+3. Re-evaluate the new limit.
+4. Repeat only while the form remains indeterminate.
+
+For $\lim_{x\to0}(e^x-1-x)/x^2$, the first derivative still gives $0/0$. A second application gives $e^x/2$, so the limit is $1/2$.
+
+<WorkedExampleSet topic="lhopital" from={0} count={3} />
+<CheckpointQuiz topic="lhopital" from={0} count={2} />
+
+<div className="soft-callout"><strong>Transfer.</strong> For a hidden form such as $0\cdot\infty$, rewrite as a quotient before differentiating.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> The form $1/0$ is not indeterminate, and differentiating a quotient with the quotient rule is not L'Hopital's rule.</div>
+
+<WorkedExampleSet topic="lhopital" from={3} count={3} />
+<CheckpointQuiz topic="lhopital" from={2} count={2} />
+
+<WorkedExampleSet topic="lhopital" from={6} count={4} />
+<CheckpointQuiz topic="lhopital" from={4} count={2} />
+
+## Quick check
+
+Use the growth hierarchy $\ln x\ll x^p\ll e^x$ to predict $\lim_{x\to\infty}\ln x/\sqrt{x}$ before calculating.

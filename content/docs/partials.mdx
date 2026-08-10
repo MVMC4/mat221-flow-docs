@@ -1,0 +1,43 @@
+﻿---
+title: Partial Fractions
+description: Decompose rational functions into integrable pieces.
+---
+
+Factor the denominator, write the complete template, solve the constants, integrate each piece, and differentiate to check.
+
+## Templates
+
+| Denominator factor | Required terms |
+| --- | --- |
+| $x-a$ | $A/(x-a)$ |
+| $(x-a)^m$ | $A_1/(x-a)+\cdots+A_m/(x-a)^m$ |
+| Irreducible quadratic | $(Bx+C)/(x^2+bx+c)$ |
+
+If the numerator degree is at least the denominator degree, divide first.
+
+<WorkedExampleSet topic="partials" from={0} count={3} />
+<CheckpointQuiz topic="partials" from={0} count={2} />
+
+## Worked example
+
+For $\int (x+3)/(x(x-1)^2)\,dx$, write:
+
+$$
+\frac{x+3}{x(x-1)^2}=\frac{A}{x}+\frac{B}{x-1}+\frac{C}{(x-1)^2}.
+$$
+
+Clear denominators, use $x=0$ and $x=1$ for quick constants, then match one coefficient for the remaining constant. Integrate the logarithmic terms and the repeated-factor power.
+
+<div className="soft-callout"><strong>Transfer.</strong> For $1/(x^2-4)$, factor first. The two linear factors produce two logarithms that can be combined.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> A repeated factor needs every power, and an irreducible quadratic needs a linear numerator.</div>
+
+<WorkedExampleSet topic="partials" from={3} count={3} />
+<CheckpointQuiz topic="partials" from={2} count={2} />
+
+<WorkedExampleSet topic="partials" from={6} count={4} />
+<CheckpointQuiz topic="partials" from={4} count={2} />
+
+## Quick check
+
+Before solving constants, count the terms in the template. If the count is wrong, the algebra cannot recover.

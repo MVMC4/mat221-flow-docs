@@ -1,0 +1,37 @@
+﻿---
+title: Applications of Integration
+description: Build area, volume, length, surface area, and centroid integrals from geometry.
+---
+
+Every application follows three moves: choose a slice, write the slice's contribution, and integrate over the correct bounds.
+
+## Disks, washers, and shells
+
+Perpendicular slices give disks or washers. Parallel slices give shells:
+
+$$
+V=\pi\int R^2\,dx,\qquad V=\pi\int(R^2-r^2)\,dx,\qquad V=2\pi\int(\text{radius})(\text{height})\,dx.
+$$
+
+For the region between $y=x^2$ and $y=2x$, the bounds are $0$ to $2$. About the $x$-axis, use washers with $R=2x$ and $r=x^2$. About the $y$-axis, use shells with radius $x$ and height $2x-x^2$.
+
+<WorkedExampleSet topic="applications" from={0} count={3} />
+<CheckpointQuiz topic="applications" from={0} count={2} />
+
+<div className="soft-callout"><strong>Transfer.</strong> Use the same region with the other axis. The curves stay the same; only the slice geometry changes.</div>
+
+## Length, surface area, and centroid
+
+Arc length uses Pythagoras: $L=\int\sqrt{1+(y')^2}\,dx$. Surface area multiplies arc length by the swept circumference. Centroids use area-weighted coordinates.
+
+<div className="soft-callout"><strong>Common error.</strong> Radius is distance to the axis; shell height is top minus bottom. Swapping them changes the geometry.</div>
+
+<WorkedExampleSet topic="applications" from={3} count={3} />
+<CheckpointQuiz topic="applications" from={2} count={2} />
+
+<WorkedExampleSet topic="applications" from={6} count={4} />
+<CheckpointQuiz topic="applications" from={4} count={2} />
+
+## Quick check
+
+Sketch the region before writing a formula. Label the outer radius, inner radius, shell radius, and shell height on the sketch.

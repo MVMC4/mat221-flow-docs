@@ -1,0 +1,57 @@
+﻿---
+title: Antiderivatives & the FTC
+description: Reverse derivatives, the constant family, and the two parts of the Fundamental Theorem of Calculus.
+---
+
+An antiderivative of $f$ is a function $F$ with $F'(x)=f(x)$. Differentiation forgets constants, so integration returns a family:
+
+$$
+\int f(x)\,dx=F(x)+C.
+$$
+
+## Differentiation undoes accumulation
+
+FTC Part 1 says:
+
+$$
+\frac{d}{dx}\int_a^x f(t)\,dt=f(x).
+$$
+
+The moving upper limit is the key. No antiderivative is needed.
+
+<div className="soft-callout"><strong>Worked example.</strong> For $\frac{d}{dx}\int_2^x(3t^2+1)\,dt$, evaluate the integrand at the moving edge: $3x^2+1$. If the upper limit is $x^2$, use the chain rule and multiply by $2x$.</div>
+
+<WorkedExampleSet topic="foundations" from={0} count={3} />
+<CheckpointQuiz topic="foundations" from={0} count={2} />
+
+## Evaluation by an antiderivative
+
+FTC Part 2 says:
+
+$$
+\int_a^b f(x)\,dx=F(b)-F(a).
+$$
+
+For $\int_1^3 2x\,dx$, take $F(x)=x^2$, then $F(3)-F(1)=9-1=8$. The constant disappears because it is subtracted at both bounds.
+
+## The power rule backwards
+
+Raise the exponent, divide by the new exponent, and add $C$. The exception is $n=-1$:
+
+$$
+\int x^n\,dx=\frac{x^{n+1}}{n+1}+C,\qquad \int\frac{dx}{x}=\ln|x|+C.
+$$
+
+For $\int 3x^2\,dx$, raise $2$ to $3$, divide $3x^3$ by $3$, and check by differentiating $x^3+C$.
+
+<div className="soft-callout"><strong>Common error.</strong> Never drop $+C$ from an indefinite integral, and never use the power rule at $n=-1$.</div>
+
+<WorkedExampleSet topic="foundations" from={3} count={3} />
+<CheckpointQuiz topic="foundations" from={2} count={2} />
+
+<WorkedExampleSet topic="foundations" from={6} count={4} />
+<CheckpointQuiz topic="foundations" from={4} count={2} />
+
+## Quick check
+
+Explain why $\int_a^a f(x)\,dx=0$, then use the same idea to evaluate one definite integral without writing an unnecessary $+C$.

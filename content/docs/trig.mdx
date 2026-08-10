@@ -1,0 +1,43 @@
+﻿---
+title: Trig Integrals, Trig Substitution & Weierstrass
+description: Choose identities and substitutions that make trigonometric integrals and radicals manageable.
+---
+
+Method choice comes from the shape: odd powers preserve a differential factor, even powers call for half-angle identities, and radicals match Pythagorean identities.
+
+## Powers of sine and cosine
+
+If the sine power is odd, save one $\sin x$, convert the rest with $\sin^2x=1-\cos^2x$, and use $u=\cos x$. If the cosine power is odd, use $u=\sin x$. If both are even, use half-angle identities.
+
+For $\int\sin^3x\cos^2x\,dx$, save $\sin x$, write $\sin^2x=1-\cos^2x$, then let $u=\cos x$. Integrate the resulting polynomial in $u$, substitute back, and differentiate to check.
+
+<WorkedExampleSet topic="trig" from={0} count={3} />
+<CheckpointQuiz topic="trig" from={0} count={2} />
+
+## Radical decision table
+
+| Radical | Substitution | Identity |
+| --- | --- | --- |
+| $\sqrt{a^2-x^2}$ | $x=a\sin\theta$ | $1-\sin^2\theta=\cos^2\theta$ |
+| $\sqrt{a^2+x^2}$ | $x=a\tan\theta$ | $1+\tan^2\theta=\sec^2\theta$ |
+| $\sqrt{x^2-a^2}$ | $x=a\sec\theta$ | $\sec^2\theta-1=\tan^2\theta$ |
+
+Write $dx$ as carefully as $x$, then draw the reference triangle to return from $\theta$ to $x$.
+
+<div className="soft-callout"><strong>Worked example.</strong> With $x=2\tan\theta$, $\sqrt{x^2+4}=2\sec\theta$ and $dx=2\sec^2\theta\,d\theta$. The triangle gives $\sin\theta=x/\sqrt{x^2+4}$.</div>
+
+## Weierstrass substitution
+
+For a rational expression in $\sin x$ and $\cos x$, use $t=\tan(x/2)$, then replace $\sin x$, $\cos x$, and $dx$ by rational expressions in $t$. Partial fractions finish the job.
+
+<div className="soft-callout"><strong>Common error.</strong> Substituting $x$ but forgetting $dx$, or leaving the final answer in $\theta$, breaks an otherwise correct setup.</div>
+
+<WorkedExampleSet topic="trig" from={3} count={3} />
+<CheckpointQuiz topic="trig" from={2} count={2} />
+
+<WorkedExampleSet topic="trig" from={6} count={4} />
+<CheckpointQuiz topic="trig" from={4} count={2} />
+
+## Quick check
+
+Classify three integrals before calculating: odd sine, both even, or radical pattern. State the first identity or substitution you would use.

@@ -1,0 +1,37 @@
+---
+title: Taylor & Maclaurin Series
+description: Approximate functions with derivative-matching polynomials and control the remainder.
+---
+
+A Taylor polynomial matches the value, slope, curvature, and higher derivatives of a function at a centre \(a\).
+
+## The rule
+
+$$
+T_n(x)=\sum_{k=0}^{n}\frac{f^{(k)}(a)}{k!}(x-a)^k.
+$$
+
+Maclaurin is the special case \(a=0\). The factorial is essential because differentiating \(x^k\) produces \(k!\).
+
+<WorkedExampleSet topic="taylor" from={0} count={3} />
+<CheckpointQuiz topic="taylor" from={0} count={2} />
+
+## Worked approximation
+
+For \(e^{0.2}\), use \(1+x+x^2/2+x^3/6\). The approximation is \(1.221333\). Bound the next term on the whole interval before reporting accuracy.
+
+<div className="soft-callout"><strong>Common error.</strong> At a nonzero centre, every power is \((x-a)^k\), not \(x^k\).</div>
+
+<WorkedExampleSet topic="taylor" from={3} count={3} />
+<CheckpointQuiz topic="taylor" from={2} count={2} />
+
+## Building series
+
+Substitute into the known series for \(e^x\), \(\sin x\), \(\cos x\), \(1/(1-x)\), or \(\ln(1+x)\). Term-by-term differentiation and integration manufacture new series inside the radius of convergence.
+
+<WorkedExampleSet topic="taylor" from={6} count={4} />
+<CheckpointQuiz topic="taylor" from={4} count={2} />
+
+## Quick check
+
+Write the \(x^4\) term of \(\cos x\), then state the alternating-series error bound for a decreasing alternating expansion.

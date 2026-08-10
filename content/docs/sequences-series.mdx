@@ -1,0 +1,33 @@
+﻿---
+title: Sequences & Series
+description: Distinguish term limits from partial-sum limits and choose convergence tests deliberately.
+---
+
+A sequence is a list; a series is a sum of partial sums. Terms tending to zero is necessary for series convergence, not sufficient.
+
+## Test selection
+
+Use the divergence test first. Then recognize geometric and p-series forms, use ratio or root tests for factorials and powers, comparison for rational-like terms, and the alternating series test when signs alternate.
+
+For $\sum_{n=1}^{\infty}(1/n-1/(n+1))$, the partial sum is $1-1/(N+1)$, so the sum converges to $1$. The cancellation appears only after writing partial sums.
+
+<WorkedExampleSet topic="sequences-series" from={0} count={3} />
+<CheckpointQuiz topic="sequences-series" from={0} count={2} />
+
+## Absolute versus conditional
+
+If $\sum|a_n|$ converges, then $\sum a_n$ converges absolutely. The alternating harmonic series converges conditionally but not absolutely.
+
+<div className="soft-callout"><strong>Transfer.</strong> For $\sum(-1)^n/n$, verify both decreasing magnitude and limit zero before invoking the alternating series test.</div>
+
+<div className="soft-callout"><strong>Common error.</strong> The divergence test can prove divergence, never convergence.</div>
+
+<WorkedExampleSet topic="sequences-series" from={3} count={3} />
+<CheckpointQuiz topic="sequences-series" from={2} count={2} />
+
+<WorkedExampleSet topic="sequences-series" from={6} count={4} />
+<CheckpointQuiz topic="sequences-series" from={4} count={2} />
+
+## Quick check
+
+Choose a test before doing algebra for a geometric series, a factorial series, a rational comparison, and an alternating series.
