@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/mdx": "^2.0.14",
+    "@vercel/analytics": "^2.0.1",
     "fumadocs-core": "^12.5.6",
     "fumadocs-mdx": "^8.2.34",
     "katex": "^0.18.3",
