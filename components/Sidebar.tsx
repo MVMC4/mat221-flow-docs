@@ -26,6 +26,10 @@ export default function Sidebar({ topics }: { topics: TopicLink[] }) {
     return function () { document.body.classList.remove("mobile-nav-active"); };
   }, [mobileOpen]);
 
+  function toggleChapter(slug: string) {
+    setOpenChapter(function (current) { return current === slug ? "" : slug; });
+  }
+
   return (
     <aside className="sidebar">
       <div className="sbrand"><span className="bars"><i></i><i></i><i></i><i></i></span> MAT 221 <em>Flow Docs</em><button className="mobile-nav-toggle" type="button" aria-expanded={mobileOpen} aria-controls="main-navigation" onClick={function () { setMobileOpen(!mobileOpen); }}>{mobileOpen ? <X size={20} /> : <Menu size={20} />}<span className="sr-only">Toggle navigation</span></button></div>
@@ -51,7 +55,7 @@ export default function Sidebar({ topics }: { topics: TopicLink[] }) {
           var chapterId = "chapter-links-" + t.slug;
           return (
             <div className="chap" key={t.slug}>
-              <button className={"chapter-toggle" + (chapterOpen ? " open" : "")} type="button" aria-expanded={chapterOpen} aria-controls={chapterId} onClick={function () { setOpenChapter(chapterOpen ? "" : t.slug); }}>
+              <button className={"chapter-toggle" + (chapterOpen ? " open" : "")} type="button" aria-expanded={chapterOpen} aria-controls={chapterId} onClick={function () { toggleChapter(t.slug); }}>
                 <span className="chapter-name"><span className="snum">{t.num}</span>{t.title}</span><ChevronDown size={16} aria-hidden="true" className={chapterOpen ? "turned" : ""} />
               </button>
               <div id={chapterId} className="sublinks" hidden={!chapterOpen}>
