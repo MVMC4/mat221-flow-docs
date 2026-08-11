@@ -4,7 +4,7 @@
    own partials to avoid specificity wars.
    ========================================================================== */
 :root{--bg:#F1EBDD;--panel:#30364D;--card:#FBF5E9;--ink:#273047;--muted:#6E7180;--line:#3A4055;--scroll-track:#E4DACB;--scroll-thumb:#9296A9;--lav:#B8C5DF;--lav2:#D9A9B0;--accent:#C97F86;--ok:#6D9C91;--bad:#A96D78;--serif:"Fraunces",Georgia,serif;--sans:"Inter",system-ui,sans-serif}
-*{margin:0;padding:0;box-sizing:border-box;min-width:0}
+*{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--scroll-thumb) var(--scroll-track)}
 body{background:var(--bg);color:var(--ink);font:15.5px/1.7 var(--sans);overflow-x:hidden}
 body::-webkit-scrollbar,.sidebar::-webkit-scrollbar,.displaymath::-webkit-scrollbar{width:10px;height:10px}
