@@ -2,7 +2,7 @@ import type { Topic } from "./types";
 const R = String.raw;
 export const T_SERIES: Topic[] = [
 {
-  slug: "taylor", num: "09", week: "Week 14", title: "Taylor & Maclaurin Series",
+  slug: "taylor", num: "15", week: "Week 14", title: "Taylor & Maclaurin Series",
   blurb: "Polynomial imitations of functions: match derivatives at a point; bound the error with Lagrange.",
   blocks: [
     { t: "p", md: "A Taylor polynomial matches f in value, slope, curvature... up to order n at a; Maclaurin means a = 0. The Lagrange remainder quantifies the imitation error." },
@@ -37,7 +37,7 @@ export const T_SERIES: Topic[] = [
   ]
 },
 {
-  slug: "sequences-series", num: "10", week: "Weeks 9-12", title: "Sequences & Convergence Tests",
+  slug: "sequences-series", num: "13", week: "Weeks 9-12", title: "Sequences & Convergence Tests",
   blurb: "Bounded monotone sequences converge; geometric series sum; a toolbox of tests decides the rest.",
   blocks: [
     { t: "p", md: "A sequence converges if its terms approach a limit; bounded + monotone guarantees convergence. An infinite series converges if its partial sums do." },
@@ -73,7 +73,7 @@ export const T_SERIES: Topic[] = [
   ]
 },
 {
-  slug: "power-series", num: "11", week: "Weeks 13-14", title: "Power Series",
+  slug: "power-series", num: "14", week: "Weeks 13-14", title: "Power Series",
   blurb: "Series whose terms are powers of (x-a): radius by ratio test, endpoints by hand, calculus term by term.",
   blocks: [
     { t: "p", md: R`A power series \(\sum c_n(x-a)^n\) converges on an interval centred at a. The ratio test gives the radius R; endpoints must be tested separately by plugging in.` },

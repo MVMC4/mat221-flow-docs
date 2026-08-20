@@ -2,7 +2,7 @@ import type { Topic } from "./types";
 const R = String.raw;
 export const T_FOUNDATIONS: Topic[] = [
 {
-  slug: "foundations", num: "00", week: "Week 1", title: "Antiderivatives & the FTC",
+  slug: "foundations", num: "01", week: "Week 1", title: "Antiderivatives & the FTC",
   blurb: "Reverse derivatives, the +C family, and the two parts of the Fundamental Theorem of Calculus.",
   blocks: [
     { t: "p", md: R`An antiderivative of \(f\) is a function \(F\) with \(F'(x)=f(x)\): differentiation breaks a function into its rate of change, antidifferentiation rebuilds it. Because constants vanish when differentiated, the answer is a whole family: \(\int f(x)\,dx = F(x)+C\).` },
@@ -43,7 +43,7 @@ export const T_FOUNDATIONS: Topic[] = [
   ]
 },
 {
-  slug: "substitution", num: "01", week: "Weeks 1-2", title: "Integration by Substitution",
+  slug: "substitution", num: "02", week: "Week 1", title: "Integration by Substitution",
   blurb: "The chain rule played backwards: spot an inside function plus (a multiple of) its derivative.",
   blocks: [
     { t: "p", md: R`Substitution reverses the chain rule. An integrand of the shape \(f(g(x))\,g'(x)\) collapses when you set \(u=g(x)\): the \(g'(x)\,dx\) becomes \(du\) and the integral simplifies to \(\int f(u)\,du\).` },
@@ -81,41 +81,41 @@ export const T_FOUNDATIONS: Topic[] = [
   ]
 },
 {
-  slug: "trig", num: "02", week: "Weeks 3-4", title: "Trig Integrals, Trig Sub & Weierstrass",
-  blurb: "Powers of sin/cos, radical-erasing substitutions, reduction formulas and the tangent half-angle.",
+  slug: "trig", num: "06", week: "Week 3", title: "Integrals of Trigonometric Functions",
+  blurb: "Choose identities by parity for sine-cosine and secant-tangent powers, then handle products with product-to-sum identities.",
   blocks: [
-    { t: "p", md: R`Two skills: taming powers of trig functions with identities, and erasing radicals \(\sqrt{a^2-x^2},\sqrt{a^2+x^2},\sqrt{x^2-a^2}\) by substituting \(x=a\sin\theta,\ a\tan\theta,\ a\sec\theta\) so a Pythagorean identity collapses the root.` },
+    { t: "p", md: R`Classify the powers before integrating. Odd sine or cosine powers preserve one differential factor; two even powers call for half-angle identities. Secant-tangent powers use the derivative pairs \(\sec^2x\,dx\) and \(\sec x\tan x\,dx\).` },
     { t: "list", items: [R`odd sin: save one \(\sin x\), convert rest with \(\sin^2=1-\cos^2\), \(u=\cos x\).`, R`odd cos: save one \(\cos x\), \(u=\sin x\).`, R`both even: half-angle \(\sin^2x=\frac{1-\cos2x}{2},\ \cos^2x=\frac{1+\cos2x}{2}\).`] },
-    { t: "theorem", tag: "Week 3", title: "Reduction formulas", tex: R`\int\sin^n x\,dx=-\frac{\sin^{n-1}x\cos x}{n}+\frac{n-1}{n}\int\sin^{n-2}x\,dx`, body: "Derived by parts; lowers the power two at a time. Same idea for cos and tan." },
+    { t: "theorem", tag: "Lesson 6-7", title: "Secant-tangent decision", tex: R`\sec^2x=1+\tan^2x,\qquad \tan^2x=\sec^2x-1`, body: "Save sec²x when the secant power is even; save sec x tan x when the tangent power is odd." },
     { t: "example", title: R`\int\sin^3x\cos^2x\,dx`, items: [R`odd sin: \((1-\cos^2x)\cos^2x\sin x\); \(u=\cos x\).`, R`\(-\int(u^2-u^4)du=-\frac{u^3}{3}+\frac{u^5}{5}+C\).`, R`\(\boxed{\tfrac15\cos^5x-\tfrac13\cos^3x+C}\)`] },
-    { t: "example", title: R`\int\frac{dx}{x^2\sqrt{x^2+4}}`, items: [R`\(x=2\tan\theta\): becomes \(\frac14\int\frac{\cos\theta}{\sin^2\theta}d\theta=-\frac{1}{4\sin\theta}+C\).`, R`triangle: \(\sin\theta=\frac{x}{\sqrt{x^2+4}}\) → \(\boxed{-\frac{\sqrt{x^2+4}}{4x}+C}\)`] },
-    { t: "theorem", tag: "Week 4", title: "Weierstrass (tangent half-angle) substitution", tex: R`t=\tan\tfrac{x}{2}:\ \sin x=\frac{2t}{1+t^2},\ \cos x=\frac{1-t^2}{1+t^2},\ dx=\frac{2\,dt}{1+t^2}`, body: "Converts any rational expression in sin and cos into a rational function of t, then partial fractions finish it." }
+    { t: "example", title: R`\int\tan^2x\,dx`, items: [R`Use \(\tan^2x=\sec^2x-1\).`, R`\(\boxed{\tan x-x+C}\)`] },
+    { t: "theorem", tag: "Products", title: "Product-to-sum", tex: R`\sin A\cos B=\frac12[\sin(A+B)+\sin(A-B)]`, body: "Use product-to-sum when the angles differ and parity identities do not apply." }
   ],
   cornell: { cues: [
     { cue: "odd sin power", note: R`peel \(\sin x\), convert, \(u=\cos x\).` },
     { cue: "both even", note: "half-angle identities." },
-    { cue: R`\(\sqrt{a^2-x^2}\)`, note: R`\(x=a\sin\theta\), root \(\to a\cos\theta\).` },
-    { cue: R`\(\sqrt{a^2+x^2}\)`, note: R`\(x=a\tan\theta\), root \(\to a\sec\theta\).` },
-    { cue: "After theta-integral", note: "use the reference right triangle to return to x." }
-  ], summary: "Identities fix powers; Pythagorean-matched substitutions erase roots; triangles bring you home." },
+    { cue: "even secant power", note: R`save \(\sec^2x\,dx\), use \(u=\tan x\).` },
+    { cue: "odd tangent power", note: R`save \(\sec x\tan x\,dx\), use \(u=\sec x\).` },
+    { cue: "different angles", note: "use product-to-sum identities." }
+  ], summary: "Use exponent parity to preserve the derivative factor that makes a substitution work." },
   cards: [
     { front: R`\(\int\sin^2x\,dx\)`, back: R`\(\frac{x}{2}-\frac{\sin2x}{4}+C\).` },
     { front: R`\(\int\cos^3x\,dx\)`, back: R`\(\sin x-\frac{\sin^3x}{3}+C\).` },
-    { front: R`\(\int\frac{dx}{\sqrt{9-x^2}}\)`, back: R`\(\sin^{-1}(\frac{x}{3})+C\).` },
-    { front: R`\(\int\frac{x^2}{\sqrt{4-x^2}}dx\)`, back: R`\(2\sin^{-1}(\frac{x}{2})-\frac{x\sqrt{4-x^2}}{2}+C\).` },
-    { front: "Weierstrass triple", back: R`\(\sin x=\frac{2t}{1+t^2},\cos x=\frac{1-t^2}{1+t^2},dx=\frac{2dt}{1+t^2}\).` },
-    { front: R`\(\int\frac{dx}{1+\sin x}\) via Weierstrass`, back: R`\(\int\frac{2dt}{(1+t)^2}=-\frac{2}{1+\tan(x/2)}+C\).` }
+    { front: R`\(\int\tan^2x\,dx\)`, back: R`\(\tan x-x+C\).` },
+    { front: "Even secant power", back: R`Save \(\sec^2x\,dx\) and use \(u=\tan x\).` },
+    { front: "Odd tangent power", back: R`Save \(\sec x\tan x\,dx\) and use \(u=\sec x\).` },
+    { front: R`\(\sin A\cos B\)`, back: R`\(\frac12[\sin(A+B)+\sin(A-B)]\).` }
   ],
   quiz: [
     { q: R`\(\int\cos^3x\,dx =\)`, options: [R`\(\sin x-\frac{\sin^3x}{3}+C\)`, R`\(\frac{\sin^4x}{4}+C\)`, R`\(\cos^2x\sin x+C\)`, R`\(-\sin x+\frac{\sin^3x}{3}+C\)`], answer: 0, explain: "Odd cos: u = sin x." },
-    { q: R`Correct substitution for \(\sqrt{4-x^2}\)`, options: [R`\(x=2\tan\theta\)`, R`\(x=2\sin\theta\)`, R`\(x=2\sec\theta\)`, R`\(x=4\sin\theta\)`], answer: 1, explain: "a^2 - x^2 pattern with a = 2." },
+    { q: R`\(\int\tan^2x\,dx=\)`, options: [R`\(\tan x-x+C\)`, R`\(\tan x+x+C\)`, R`\(\sec^2x+C\)`, R`\(\tan^3x/3+C\)`], answer: 0, explain: "Use tan²x=sec²x-1." },
     { q: R`\(\int\sin^2x\,dx =\)`, options: [R`\(\frac{x}{2}-\frac{\sin2x}{4}+C\)`, R`\(\frac{x}{2}+\frac{\sin2x}{4}+C\)`, R`\(-\cos^2x+C\)`, R`\(\frac{\sin^3x}{3}+C\)`], answer: 0, explain: "Half-angle identity." },
-    { q: "Weierstrass substitution turns a sin/cos rational integrand into…", options: ["a trig integral", "a rational function of t", "an exponential integral", "a series"], answer: 1, explain: "That is its entire purpose; then use partial fractions." }
+    { q: "When the secant power is even, save", options: [R`\(\tan x\,dx\)`, R`\(\sec^2x\,dx\)`, R`\(\sin x\,dx\)`, R`\(dx\) only`], answer: 1, explain: "It is the derivative factor for u=tan x." }
   ],
   traps: [
     { title: "Even powers, wrong identity", text: "using sin^2 = 1-cos^2 on even powers leads nowhere; half-angle is mandatory." },
-    { title: "Forgetting dx", text: "substituting x but not dx (e.g. dx = 2 sec^2 theta dtheta) breaks the integral." },
-    { title: "Triangle back-sub", text: "leaving answers in theta loses the final mark; draw the triangle." }
+    { title: "Wrong saved factor", text: "The preserved factor must match the differential of the intended substitution." },
+    { title: "Product-to-sum skipped", text: "Different angles usually need product-to-sum before integration." }
   ]
 }
 ];

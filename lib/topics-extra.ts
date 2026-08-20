@@ -35,7 +35,7 @@ substitution: {
     { q: R`With u = x^2+1, du =`, options: ["2x dx", "x dx", "dx", "x^2 dx"], answer: 0, explain: "Differentiate u." }],
   traps: [{ title: "Mixed x and u", text: "never evaluate a u-antiderivative at x-limits; convert limits or back-substitute first." }]
 },
-trig: {
+"trig-substitution": {
   blocks: [{ t: "visual", img: "/visuals/trig-triangle.svg", title: "Reference triangle back-sub", caption: "x = a tanθ: opposite x, adjacent a, hypotenuse √(x²+a²)." }],
   cards: [
     { front: R`\(\int \tan^2x\,dx\)`, back: R`\(\tan x - x + C\) (identity tan² = sec²-1).` },

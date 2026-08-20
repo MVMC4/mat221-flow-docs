@@ -20,6 +20,8 @@ export const FORMULAS: FormulaGroup[] = [
 { group: "Techniques", items: [
   { name: "u-sub (definite)", tex: R`\(\int_a^b f(g)g'\,dx=\int_{g(a)}^{g(b)} f(u)du\)` },
   { name: "By parts", tex: R`\(\int u\,dv=uv-\int v\,du;\ \text{LIATE for }u\)` },
+  { name: "Reduction: polynomial-exponential", tex: R`\(I_n=\int x^ne^x dx=x^ne^x-nI_{n-1}\)` },
+  { name: "Reduction: cosine powers", tex: R`\(I_n=\frac{\sin x\cos^{n-1}x}{n}+\frac{n-1}{n}I_{n-2}\)` },
   { name: "Partial fractions", tex: R`\(\frac{A}{x-a};\ \frac{A_1\dots A_m}{(x-a)^m};\ \frac{Bx+C}{q(x)}\)` },
   { name: "Trig subs", tex: R`\(\sqrt{a^2-x^2}\!\to\!a\sin\theta;\ \sqrt{a^2+x^2}\!\to\!a\tan\theta;\ \sqrt{x^2-a^2}\!\to\!a\sec\theta\)` },
   { name: "Half-angle", tex: R`\(\sin^2x=\frac{1-\cos2x}{2},\ \cos^2x=\frac{1+\cos2x}{2}\)` },

@@ -7,7 +7,11 @@ export function typeset(el?: HTMLElement | null) {
   if (typeof window === "undefined") return;
   var mj = (window as any).MathJax;
   if (!mj || !mj.typesetPromise) return;
-  if (mj.typesetClear) mj.typesetClear(el ? [el] : undefined);
+  /* Route-level static math is typeset once without clearing. Interactive
+     islands clear only their own subtree when their content changes. This
+     prevents two renderers (or two overlapping passes) from duplicating a
+     formula while still supporting flips, reveals, and quiz feedback. */
+  if (el && mj.typesetClear) mj.typesetClear([el]);
   mj.typesetPromise(el ? [el] : undefined).catch(function () {});
 }
 
