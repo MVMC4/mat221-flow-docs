@@ -2,7 +2,7 @@ import type { Topic } from "./types";
 const R = String.raw;
 export const T_APPLICATIONS: Topic[] = [
 {
-  slug: "applications", num: "06", week: "Weeks 6-7", title: "Volume, Arc Length, Surface Area, Centroid",
+  slug: "applications", num: "11", week: "Weeks 6-7", title: "Volume, Arc Length, Surface Area, Centroid",
   blurb: "Slice, approximate, take the limit: disks, washers, shells, tiny hypotenuses and weighted averages.",
   blocks: [
     { t: "p", md: "One philosophy: slice the object, approximate the slice, let the slice count go to infinity. Disks/washers slice perpendicular to the axis; shells slice parallel; arc length sums tiny hypotenuses; centroids average position weighted by area." },
@@ -40,7 +40,7 @@ export const T_APPLICATIONS: Topic[] = [
   ]
 },
 {
-  slug: "improper", num: "07", week: "Week 4", title: "Improper Integrals",
+  slug: "improper", num: "09", week: "Week 4", title: "Improper Integrals",
   blurb: "Infinite intervals and exploding integrands: cut off, integrate, take the limit.",
   blocks: [
     { t: "p", md: "Type I: infinite interval. Type II: integrand blows up inside the interval. Both are defined by cutting the problem at t and letting t approach the trouble. Finite limit = convergent." },
@@ -75,7 +75,7 @@ export const T_APPLICATIONS: Topic[] = [
   ]
 },
 {
-  slug: "lhopital", num: "08", week: "Week 9", title: "Indeterminate Forms & L'Hopital",
+  slug: "lhopital", num: "12", week: "Week 9", title: "Indeterminate Forms & L'Hopital",
   blurb: "Compare rates of growth: differentiate top and bottom separately until the form decides.",
   blocks: [
     { t: "p", md: R`A form like \(\frac00\) is indeterminate because the form alone does not determine the answer. L'Hopital compares rates: near the point, functions behave like their derivatives.` },

@@ -2,7 +2,7 @@ import type { Topic } from "./types";
 const R = String.raw;
 export const T_TECHNIQUES: Topic[] = [
 {
-  slug: "parts", num: "03", week: "Week 2", title: "Integration by Parts",
+  slug: "parts", num: "04", week: "Week 2", title: "Integration by Parts",
   blurb: "The product rule reversed; LIATE chooses u; cyclic integrals solved algebraically.",
   blocks: [
     { t: "theorem", tag: "FB-3", title: "Integration by parts", tex: R`\int u\,dv = uv-\int v\,du`, body: "Choose u by LIATE (Log, Inverse trig, Algebraic, Trig, Exponential); dv is everything else. The new integral must be simpler." },
@@ -36,7 +36,7 @@ export const T_TECHNIQUES: Topic[] = [
   ]
 },
 {
-  slug: "partials", num: "04", week: "Week 2", title: "Partial Fraction Decomposition",
+  slug: "partials", num: "03", week: "Week 2", title: "Partial Fraction Decomposition",
   blurb: "Un-mix a rational function into integrable pieces: four cases, two solving methods.",
   blocks: [
     { t: "p", md: R`Decomposition rewrites \(\frac{P(x)}{Q(x)}\) as a sum of simpler fractions — the reverse of adding over a common denominator. It works because every simple piece is integrable: logs, powers, arctans.` },
@@ -72,7 +72,7 @@ export const T_TECHNIQUES: Topic[] = [
   ]
 },
 {
-  slug: "numerical", num: "05", week: "Week 5", title: "Riemann, Trapezoidal, and Simpson Rules",
+  slug: "numerical", num: "10", week: "Week 5", title: "Riemann, Trapezoidal, and Simpson Rules",
   blurb: "When no antiderivative exists: rectangles, trapezoids, parabolas — and their error behaviour.",
   blocks: [
     { t: "p", md: R`Some integrals (e.g. \(\int e^{x^2}dx\)) have no elementary antiderivative, so the FTC cannot produce a number. Numerical rules approximate area directly; they are the limit-of-sums definition of the integral made practical.` },

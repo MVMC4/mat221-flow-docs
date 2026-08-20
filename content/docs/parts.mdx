@@ -1,43 +1,137 @@
-﻿---
+---
 title: Integration by Parts
-description: Trade a product for a simpler product using the integrated product rule.
+description: Derive the rule from the product rule, choose u and dv deliberately, and recognise repeated and cyclic cases.
 ---
 
-Integration by parts is the product rule in reverse:
+<LessonIntro topic="parts" />
+
+<Concept title="Integration by parts" what="The product rule read backwards, replacing one product integral by a boundary product and a simpler integral." why="Differentiation simplifies one factor while integration preserves or simplifies the other." when="Use it for polynomial products, logarithms, inverse functions, repeated products, and cyclic exponential-trigonometric forms." />
+
+<Theorem title="Integration-by-parts rule" statement={"\\(\\int u\\,dv=uv-\\int v\\,du\\)"} conditions="u must be differentiable, dv must be integrable, and the new integral should be simpler or algebraically recover the original." meaning="The derivative is transferred from one factor to the other with a minus sign." consequences="For definite integrals, evaluate uv at both bounds; for cyclic cases, isolate the original integral algebraically." />
+
+## Where the formula comes from
+
+Start with the product rule:
 
 $$
-\int u\,dv=uv-\int v\,du.
+\frac{d}{dx}(uv)=u\frac{dv}{dx}+v\frac{du}{dx}.
 $$
 
-Choose $u$ so differentiation simplifies it, and $dv$ so integration is easy. LIATE is a useful heuristic: logarithmic, inverse trig, algebraic, trig, exponential.
-
-<WorkedExampleSet topic="parts" from={0} count={3} />
-<CheckpointQuiz topic="parts" from={0} count={2} />
-
-## Worked example: a polynomial and an exponential
-
-For $\int xe^x\,dx$, choose $u=x$ and $dv=e^x\,dx$. Then $du=dx$ and $v=e^x$:
+Integrate both sides and rearrange:
 
 $$
-xe^x-\int e^x\,dx=(x-1)e^x+C.
+\boxed{\int u\,dv=uv-\int v\,du}.
 $$
 
-Differentiate the answer to check both the product and the sign.
+The definite version keeps the boundary term:
 
-## Tabular and cyclic cases
+$$
+\boxed{\int_a^b u\,dv=[uv]_a^b-\int_a^b v\,du}.
+$$
 
-Differentiate the polynomial down to zero, integrate the other factor down, and alternate signs on the diagonals. For $e^x\sin x$, a second application reproduces the original integral. Name it $I$, collect the $I$-terms, and solve algebraically.
+<Callout label="The real goal">The formula only helps if the new integral $\int v\,du$ is easier than the original. Choosing symbols is not the goal; creating a simpler integral is.</Callout>
 
-<div className="soft-callout"><strong>Transfer.</strong> Try $\int x^2e^x\,dx$. The same structure works, but the table needs one more row.</div>
+## How to choose $u$ and $dv$
 
-<div className="soft-callout"><strong>Common error.</strong> Dropping the boundary term in a definite integration-by-parts problem loses part of the answer.</div>
+Use LIATE as a guide for $u$: logarithmic, inverse trigonometric, algebraic, trigonometric, exponential. Then let $dv$ be everything left, including $dx$.
 
-<WorkedExampleSet topic="parts" from={3} count={3} />
-<CheckpointQuiz topic="parts" from={2} count={2} />
+Before committing, ask: does differentiating $u$ simplify it, and can I integrate $dv$ immediately?
 
-<WorkedExampleSet topic="parts" from={6} count={4} />
-<CheckpointQuiz topic="parts" from={4} count={2} />
+The properties used are the product rule, linearity of integration, ordinary antiderivative rules, and—when bounds are present—the evaluation property $[uv]_a^b=u(b)v(b)-u(a)v(a)$.
 
-## Quick check
+## Worked example 1: one application
 
-For $\int\ln x\,dx$, invent the product $u=\ln x$, $dv=dx$. State why this is legal before integrating.
+Evaluate $\int xe^x\,dx$. Choose
+
+$$
+u=x,\quad dv=e^x\,dx,\quad du=dx,\quad v=e^x.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\int xe^x\,dx
+&=xe^x-\int e^x\,dx\\
+&=xe^x-e^x+C\\
+&=\boxed{e^x(x-1)+C}.
+\end{aligned}
+$$
+
+Differentiate $e^x(x-1)$: the product rule gives $e^x(x-1)+e^x=xe^x$, so the answer checks.
+
+## Worked example 2: an invisible product
+
+Evaluate $\int \ln x\,dx$ for $x>0$. Write the integrand as $(\ln x)(1)$:
+
+$$
+u=\ln x,\quad dv=dx,\quad du=\frac{dx}{x},\quad v=x.
+$$
+
+Therefore
+
+$$
+\int\ln x\,dx=x\ln x-\int1\,dx=\boxed{x\ln x-x+C}.
+$$
+
+This is why logarithms sit first in LIATE: differentiating $\ln x$ turns it into the simpler $1/x$.
+
+## Worked example 3: definite bounds
+
+Evaluate $\int_0^1 x\tan^{-1}x\,dx$. Choose
+
+$$
+u=\tan^{-1}x,\quad dv=x\,dx,\quad du=\frac{dx}{1+x^2},\quad v=\frac{x^2}{2}.
+$$
+
+Then
+
+$$
+\int_0^1x\tan^{-1}x\,dx
+=\left[\frac{x^2}{2}\tan^{-1}x\right]_0^1
+-\frac12\int_0^1\frac{x^2}{1+x^2}\,dx.
+$$
+
+Since $x^2/(1+x^2)=1-1/(1+x^2)$,
+
+$$
+\begin{aligned}
+\int_0^1x\tan^{-1}x\,dx
+&=\frac{\pi}{8}-\frac12[x-\tan^{-1}x]_0^1\\
+&=\boxed{\frac{\pi-2}{4}}.
+\end{aligned}
+$$
+
+<Callout label="Common error" tone="trap">In a definite integral the boundary term is $[uv]_a^b$. Evaluate it at both bounds.</Callout>
+
+## Repeated and cyclic cases
+
+If $u$ is a polynomial, repeat parts until the polynomial differentiates to zero. The tabular method records these repeated steps compactly.
+
+If the original integral reappears, name it $I$, perform parts until $I$ returns, then collect the $I$-terms. For example,
+
+$$
+\boxed{\int e^x\sin x\,dx=\frac{e^x}{2}(\sin x-\cos x)+C}.
+$$
+
+## Method checklist
+
+1. Identify the product, including any invisible factor $1$.
+2. Choose $u$ so differentiation simplifies it.
+3. Choose an immediately integrable $dv$.
+4. Write $du$ and $v$ before applying the rule.
+5. Decide whether to stop, repeat, or solve a cycle.
+6. Differentiate the result to check.
+
+## Common mistakes
+
+- Choosing $u$ so that differentiation makes the remaining integral harder.
+- Forgetting the minus sign in $uv-\int v\,du$.
+- Dropping the boundary evaluation in a definite integral.
+- Repeating parts in a cyclic integral without isolating the original integral.
+
+## Worked examples 4–8: repeated and definite cases
+
+<WorkedExampleSet topic="parts" count={5} numberStart={4} />
+
+<CheckpointQuiz topic="parts" from={0} count={4} />

@@ -32,7 +32,13 @@ export default function Flashcards({ cards, storageKey = "mat221-flashcards", wo
   useEffect(function () {
     try { localStorage.setItem(storageKey, JSON.stringify(known)); } catch {}
   }, [known, storageKey]);
-  useEffect(function () { typesetWhenMathJaxReady(ref.current); }, [i, flip, order]);
+  /* Both faces stay mounted. Typeset only when the card changes; a flip is a
+     visual state change and must not clear/rebuild mathematics or layout. */
+  useEffect(function () { typesetWhenMathJaxReady(ref.current); }, [i, order]);
+  useEffect(function () {
+    var active = ref.current ? ref.current.querySelector<HTMLElement>(".fc-face.is-active") : null;
+    if (active) active.scrollTop = 0;
+  }, [i, flip]);
 
   function mark(k: string) {
     if (!order.length) return;
@@ -43,12 +49,12 @@ export default function Flashcards({ cards, storageKey = "mat221-flashcards", wo
   function prev() { if (order.length) { setFlip(false); setI((i - 1 + order.length) % order.length); } }
   function shuffle() { setOrder(order.slice().sort(function () { return Math.random() - 0.5; })); setI(0); setFlip(false); }
   function reset() { setKnown({}); setI(0); setFlip(false); setOrder(cards.map(function (_, k) { return k; })); }
+  function toggle() { setFlip(function (v) { return !v; }); }
 
   useEffect(function () {
     function h(e: KeyboardEvent) {
       if (e.key === "ArrowRight") next();
       else if (e.key === "ArrowLeft") prev();
-      else if (e.key === "Enter" || e.key === " ") setFlip(function (v) { return !v; });
     }
     window.addEventListener("keydown", h);
     return function () { window.removeEventListener("keydown", h); };
@@ -65,11 +71,14 @@ export default function Flashcards({ cards, storageKey = "mat221-flashcards", wo
       </div>
       <div className="fc-scene" role="button" tabIndex={0}
         aria-label={flip ? "Answer side showing. Activate to flip back to the prompt." : "Prompt side showing. Activate to reveal the answer."}
-        onClick={function () { setFlip(function (v) { return !v; }); }}
-        onKeyDown={function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setFlip(function (v) { return !v; }); } }}>
-        <div key={order[i] + "-" + i + "-" + (flip ? "answer" : "prompt")} className={"fc-card" + (flip ? " flipped" : "")}>
-          <div className="fc-face">
-            {flip ? <><span className="chip">Answer</span><div className="fc-text">{c.back}</div>{c.note ? <p className="fc-hint">{c.note}</p> : null}{currentWorked && currentWorked.example ? <div className="fc-working"><p className="fc-working-title">Full working</p><ol className="steps">{currentWorked.example.items.map(function (item, j) { return <li key={j}>{item}</li>; })}</ol><p className="fc-hint">Reproduce each line before marking this card “Got it”.</p></div> : <p className="fc-hint">If this answer is not immediate, open Questions for a complete written derivation of the closest worked problem.</p>}</> : <><span className="chip">Prompt</span><div className="fc-text">{c.front}</div><span className="fc-hint">Click or press Enter to reveal the answer.</span></>}
+        onClick={toggle}
+        onKeyDown={function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); } }}>
+        <div key={order[i] + "-" + i} className={"fc-card" + (flip ? " flipped" : "")}>
+          <div className={"fc-face fc-front" + (!flip ? " is-active" : "")} aria-hidden={flip} inert={flip ? true : undefined}>
+            <span className="chip">Prompt</span><div className="fc-text">{c.front}</div><span className="fc-hint">Click or press Enter to reveal the answer.</span>
+          </div>
+          <div className={"fc-face fc-back" + (flip ? " is-active" : "")} aria-hidden={!flip} inert={!flip ? true : undefined}>
+            <span className="chip">Answer</span><div className="fc-text">{c.back}</div>{c.note ? <p className="fc-hint">{c.note}</p> : null}{currentWorked && currentWorked.example ? <div className="fc-working"><p className="fc-working-title">Full working</p><ol className="steps">{currentWorked.example.items.map(function (item, j) { return <li key={j}>{item}</li>; })}</ol><p className="fc-hint">Reproduce each line before marking this card “Got it”.</p></div> : <p className="fc-hint">If this answer is not immediate, open Questions for a complete written derivation of the closest worked problem.</p>}
           </div>
         </div>
       </div>

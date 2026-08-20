@@ -4,6 +4,7 @@ import "../styles/flashcards.css";
 import "../styles/quiz.css";
 import "../styles/planner.css";
 import "../styles/print.css";
+import "../styles/video.css";
 import "katex/dist/katex.min.css";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body>
         <Script id="mj-config" strategy="beforeInteractive">
-          {`window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["$$","$$"],["\\\\[","\\\\]"]]},options:{enableMenu:true}};`}
+          {`window.MathJax={tex:{inlineMath:[["$","$"],["\\\\(","\\\\)"]],displayMath:[["$$","$$"],["\\\\[","\\\\]"]],processEscapes:true},options:{enableMenu:true,skipHtmlTags:["script","noscript","style","textarea","pre","code","annotation","semantics","math"]}};`}
         </Script>
         <Script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" strategy="afterInteractive" />
         <PageMath />
